@@ -1,18 +1,16 @@
 import React from "react";
 
-const SignComponent = ({value}) => {
-  const [isActive, setActive] = React.useState(false);
+const SignComponent = React.memo(({value, currentSign, setCurrentSign,index}) => {
 
-  console.log("Child render");
-
+  const isActive = currentSign === value
   return (
     <span
       className={isActive ? "sign-component-active" : "sign-component"}
-      onClick={() => setActive(true)}
+      onClick={setCurrentSign}
     >
       {value}
     </span>
   );
-};
+});
 
 export default SignComponent;
